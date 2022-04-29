@@ -4,58 +4,40 @@ kind: Deployment
 
 metadata:
 
-name: sampleapp
+  name: myapp
 
 spec:
 
-selector:
+  selector:
 
-matchLabels:
+    matchLabels:
 
-run: sampleapp
+      app: myapp
 
-replicas: 1
+  template:
 
-template:
+    metadata:
 
-metadata:
+      labels:
 
-labels:
+        app: myapp
 
-run: sampleapp
+    spec:
 
-spec:
+      containers:
 
-containers:
+      - name: myapp
 
-- name: glams
+        image: harishoo7/glams
 
-image: harishoo7/glams
+        resources:
 
-ports:
+          limits:
 
-- containerPort: 80
+            memory: "128Mi"
 
----
+            cpu: "500m"
 
-apiVersion: v1
+        ports:
 
-kind: Service
-
-metadata:
-
-name: sampleapp
-
-spec:
-
-type: NodePort
-
-selector:
-
-run: glams
-
-ports:
-
-- port: 80
-
-targetPort: 80
+        - containerPort: 80
