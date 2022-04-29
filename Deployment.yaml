@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+name: glams
+
+spec:
+
+selector:
+
+matchLabels:
+
+run: glams
+
+replicas: 1
+
+template:
+
+metadata:
+
+labels:
+
+run: glams
+
+spec:
+
+containers:
+
+- name: glams
+
+image: harishoo7/glams
+
+ports:
+
+- containerPort: 80
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+name: glams
+
+spec:
+
+type: NodePort
+
+selector:
+
+run: glams
+
+ports:
+
+- port: 80
+
+targetPort: 80
