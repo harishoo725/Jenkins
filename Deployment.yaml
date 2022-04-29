@@ -4,7 +4,7 @@ kind: Deployment
 
 metadata:
 
-name: glams
+name: sampleapp
 
 spec:
 
@@ -12,7 +12,7 @@ selector:
 
 matchLabels:
 
-run: glams
+run: sampleapp
 
 replicas: 1
 
@@ -22,7 +22,7 @@ metadata:
 
 labels:
 
-run: glams
+run: sampleapp
 
 spec:
 
@@ -44,7 +44,7 @@ kind: Service
 
 metadata:
 
-name: glams
+name: sampleapp
 
 spec:
 
