@@ -1,14 +1,20 @@
 apiVersion: v1
 kind: Service
-labels: ~
-metadata: ~
-name: http
-ports: 
-  - 
-    port: 5000
-protocol: TCP
-run: myapp
-selector: ~
-spec: ~
-targetPort: 80
-type: NodePort
+metadata: 
+  name: myapp
+  
+  namespace: dev
+  
+  
+  labels:
+    run: myapp
+spec:
+  type: NodePort
+  ports:
+  - ports: 5000
+    targetPort: 80
+    protocol: TCP
+    name: http
+  
+  selector:
+    run: myapp
