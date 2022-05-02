@@ -5,6 +5,8 @@ kind: Deployment
 metadata:
 
   name: myapp
+  
+  namespace: dev
 
 spec:
 
