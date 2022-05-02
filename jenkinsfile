@@ -52,7 +52,7 @@ spec:
              }
          stage('docker push') {
                steps {
-                     sh 'docker push harishoo7/glams'
+                     sh 'docker push harishoo7/harish'
                   }
             }
             stage ('deploy'){
