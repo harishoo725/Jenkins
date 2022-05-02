@@ -4,9 +4,7 @@ kind: Deployment
 
 metadata:
 
-  name: harish
-  
-  namespace: dev 
+  name: harish 
   
 spec:
 
