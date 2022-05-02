@@ -1,18 +1,39 @@
 apiVersion: apps/v1
-containers: 
-  - 
-    name: myapp
-image: harishoo7/glams
+
 kind: Deployment
-labels: ~
-matchLabels: ~
-metadata: ~
-name: myapp
-ports: 
-  - 
-    containerPort: 5000
-replicas: 1
-run: myapp
-selector: ~
-spec: ~
-template: ~
+
+metadata:
+
+  name: myapp
+  
+  namespace: dev 
+  
+spec:
+
+  selector:
+  
+    matchLabels:
+    
+      run: myapp
+      
+  replicas: 1
+  
+  template:
+    
+    metadata:
+    
+      labels:
+      
+        run: myapp
+        
+    spec:
+      
+      containers:
+      
+      - name: myapp
+      
+        image: harishoo7/glams
+        
+        ports:
+        
+        - containerPort: 5000
