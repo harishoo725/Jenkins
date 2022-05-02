@@ -6,7 +6,7 @@ metadata:
     run: harish
 spec:
   type: NodePort
-  port:
+  ports:
   - port: 5000
     targetPort: 80
     protocol: TCP
