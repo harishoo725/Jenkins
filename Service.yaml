@@ -2,16 +2,12 @@ apiVersion: v1
 kind: Service
 metadata: 
   name: harish
-  
-  namespace: jenkins
-  
-  
   labels:
     run: harish
 spec:
   type: NodePort
-  ports:
-  - ports: 5000
+  port:
+  - port: 5000
     targetPort: 80
     protocol: TCP
     name: http
