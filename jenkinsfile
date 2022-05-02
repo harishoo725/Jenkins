@@ -55,5 +55,14 @@ spec:
                      sh 'docker push harishoo7/glams'
                   }
             }
+            stage ('deploy'){
+            steps{
+            script{
+              sh 'kubectl apply -f Deployment.yaml'
+              sh "kubectl apply -f Service.yaml"
+
+            }
+            }
+            }
     }
 }
