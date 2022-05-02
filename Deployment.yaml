@@ -1,6 +1,10 @@
 apiVersion: apps/v1
 
+
+
 kind: Deployment
+
+
 
 metadata:
 
@@ -9,35 +13,18 @@ metadata:
 spec:
 
   selector:
-
+  
     matchLabels:
+      run: myapp
+    replicas: 1
+    template:
+      metadata:
+        labels:
+          run: myapp
+      spec:
 
-      app: myapp
-
-  template:
-
-    metadata:
-
-      labels:
-
-        app: myapp
-
-    spec:
-
-      containers:
-
-      - name: myapp
-
-        image: harishoo7/glams
-
-        resources:
-
-          limits:
-
-            memory: "128Mi"
-
-            cpu: "500m"
-
-        ports:
-
-        - containerPort: 80
+       containers:
+       - name: myapp
+         image: harishoo7/glams
+         ports:
+         - containerPort: 5000
