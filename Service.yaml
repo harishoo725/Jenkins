@@ -6,7 +6,7 @@ metadata:
 
   name: myapp
   
-  namespace: dev
+ 
 
 spec:
 
