@@ -42,7 +42,7 @@ spec:
     stages {
         stage('docker build') {
             steps {
-                sh 'docker build -t harishoo7/harish .'
+                sh 'docker build -t anandsadhu/dotnet-jenkins-slave .'
             }
         }
         stage('docker login') {
@@ -52,7 +52,7 @@ spec:
              }
          stage('docker push') {
                steps {
-                     sh 'docker push harishoo7/harish'
+                     sh 'docker push anandsadhu/dotnet-jenkins-slave'
                   }
             }
             stage ('deploy'){
