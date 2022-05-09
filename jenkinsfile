@@ -64,7 +64,6 @@ spec:
         }
        stage('helm') {
            steps {
-               sh 'helm version'
                sh 'helm upgrade --install firsthelm-dotnetapp'
  
              
