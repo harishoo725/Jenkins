@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp
+  name: jenkins
   annotations:
     kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/rewrite-target: /
@@ -13,7 +13,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: myapp
+              name: jenkins
               port:
                 number: 80
          # backend:
