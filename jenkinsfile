@@ -48,8 +48,8 @@ spec:
         stage('docker login') {
             steps {
             withCredentials([string(credentialsId: 'hub', variable: 'hub')]) {
-          }
-                 sh 'docker login -u harishoo7 -p ${hub}'
+                      sh 'docker login -u harishoo7 -p ${hub}'
+               }   
                 }
              }
          stage('docker push') {
