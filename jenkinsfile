@@ -39,6 +39,9 @@ spec:
             defaultContainer 'shell'
         }
     }
+    environment {
+    DOCKERHUB_CREDENTIALS = credentials('token')
+    }
     stages {
         stage('docker build') {
             steps {
@@ -47,8 +50,7 @@ spec:
         }
         stage('docker login') {
             steps {
-            withCredentials([string(credentialsId: 'hub', variable: 'hub')]) {
-                      sh 'docker login -u harishoo7 -p ${hub}'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin ' 
                }   
                 }
              }
