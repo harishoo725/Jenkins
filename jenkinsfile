@@ -15,7 +15,7 @@ kind: Pod
 spec:
   containers:
   - name: shell
-    image: anandsadhu/dotnet-jenkins-slave
+    image: harishoo7/alert
     command:
     - sleep
     args:
@@ -45,7 +45,7 @@ spec:
     stages {
         stage('docker build') {
             steps {
-                sh 'docker build -t harishoo7/sampleapp .'
+                sh 'docker build -t harishoo7/alert .'
             }
         }
         stage('docker login') {
@@ -55,22 +55,9 @@ spec:
              }
          stage('docker push') {
                steps {
-                     sh 'docker push harishoo7/sampleapp'
+                     sh 'docker push harishoo7/alert'
                   }
             }
-             stage("install helm"){
-       steps {
-         sh 'curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3'
-         sh 'chmod 700 get_helm.sh'
-         sh './get_helm.sh'
-           }
-        }
-       stage('helm') {
-           steps {
-               sh 'helm upgrade --install firsthelm dotnetapp'
- 
-             
-           }
-       }
+            
     }
 }
