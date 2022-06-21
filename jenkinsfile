@@ -58,6 +58,10 @@ spec:
                      sh 'docker push harishoo7/sampleapp'
                   }
             }
-            
+         stage{
+             steps {
+                sh " kubectl create -f deployment.yaml"
+             }
+         }   
     }
 }
